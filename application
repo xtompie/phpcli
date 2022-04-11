@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+<?php
+
+require 'vendor/autoload.php';
+
+use App\Shared\Kernel\Kernel;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
+
+$container = new ContainerBuilder();
+(new PhpFileLoader($container, new FileLocator()))->load(__DIR__ . '/config/services.php');
+$container->compile();
+exit($container->get(Kernel::class)->run());
