@@ -11,7 +11,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 
 #[AsCommand('test:test')]
-#[AutoconfigureTag('command')]
 class TestCommand extends Command
 {
     public function __construct(
